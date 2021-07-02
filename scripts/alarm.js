@@ -1,13 +1,19 @@
 console.log("Connected");
 
 const alarmSubmit = document.getElementById('alarmSubmit');
-
+const alarmStop = document.getElementById('alarmStop');
 
 var audio = new Audio('action_epic.mp3');
 function ringBell() {
     audio.play();
 }
+alarmStop.addEventListener('click', (e) => {
+    e.preventDefault();
+    audio.currentTime = 0;
+    audio.pause();
+    alarmStop.style.display = "none";
 
+})
 alarmSubmit.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -21,7 +27,10 @@ alarmSubmit.addEventListener('click', (e) => {
     if(timeToAlarm>=0){
         setTimeout(() => {
             console.log("Ringing now")
+            alarmStop.style.display = "block";
+            // alarmStop.classList.add("db");
             ringBell();
         }, timeToAlarm);
+        alarmStop.style.display = "none";
     }
 });

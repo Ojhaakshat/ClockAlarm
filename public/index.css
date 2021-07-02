@@ -40,3 +40,9 @@
     align-items: center;
     justify-content: flex-end;
 }
+#alarmStop {
+    display: none;
+}
+/* .db{
+    display: inline;
+} */
