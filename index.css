@@ -33,3 +33,10 @@
     left: 49.395%;
     opacity: 0.8; 
 }
+.center {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
