@@ -4,6 +4,10 @@ const temp = document.getElementById("temperature");
 const desc = document.getElementById("description");
 const loc = document.getElementById("location");
 const icon = document.getElementById("image");
+const date = document.getElementById("date");
+const pres = document.getElementById("pressure");
+const humid = document.getElementById("humidity");
+
 const key = "52b1659fc26409736c822ae679f958af";
 let longitude;
 let latitude;
@@ -25,9 +29,20 @@ window.addEventListener("load", () => {
 const temperature = {
 
 };
+function getDate (d) {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+  
+    return `${day} ${date} ${month} ${year}`;
+  }
 function getWeather(longitude, latitude) {
     
-    // const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     
     fetch(api)
         .then((res) => {
@@ -41,7 +56,11 @@ function getWeather(longitude, latitude) {
             // console.log(data.weather.description);
             desc.innerHTML = data.weather[0].description;
             loc.innerHTML = `${data.name}, ${data.sys.country}`;
-            icon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            icon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+            humid.innerHTML = `${data.main.humidity}%`;
+            pres.innerHTML = `${data.main.pressure}mbar`;
+            const now = new Date();
+            date.innerHTML = getDate(now);
         })
 }
 
