@@ -57,8 +57,8 @@ function getWeather(longitude, latitude) {
             desc.innerHTML = data.weather[0].description;
             loc.innerHTML = `${data.name}, ${data.sys.country}`;
             icon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-            humid.innerHTML = `${data.main.humidity}%`;
-            pres.innerHTML = `${data.main.pressure}mbar`;
+            humid.innerHTML = `Humidity - ${data.main.humidity}%`;
+            pres.innerHTML = `Pressure - ${data.main.pressure}mbar`;
             const now = new Date();
             date.innerHTML = getDate(now);
         })
