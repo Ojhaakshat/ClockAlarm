@@ -13,6 +13,9 @@
 
     <div id="notification"></div>
     <div id="weatherContainer">
+        <div id="weather_icon">
+            <img style="max-height:50px;max-width:50px;height:auto;width:auto;" src="../icons/unknown.png" alt="Unknown" id="image">
+        </div>
         <div id="temperature">
             - °<span>C</span>
         </div>
@@ -29,12 +32,6 @@
     </div>
     <div id = "alarmContainer" class="center">
         
-        <!-- <div class="form-group">
-            <label for="alarm">Set Alarm</label>
-            <input type="text" class="form-control" id="alarm" name="alarm" placeholder="Enter the time in yyyy-mm-dd hh:mm:ss">
-
-            <small id="alarmHelp" class="form-text text-muted">We'll never share your alarm with anyone else.</small>
-        </div> -->
         <label for="alarm"> Set Alarm</label>
         <br>
         <input class="form-control" type="text" id="alarm" name="alarm" placeholder="Enter the time in yyyy-mm-dd hh:mm:ss">
