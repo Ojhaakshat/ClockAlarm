@@ -4,8 +4,8 @@
     background-image: url(https://www.vippng.com/png/full/19-199115_clock-without-hands-png.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 45vw;
-    width: 45vw;
+    height: 450vw;
+    width: 450vw;
 
 }
 #hour, #minute, #second{
@@ -57,4 +57,7 @@
     flex-wrap: wrap;
     align-items: flex-end;
     background-color:#3C5186;
+}
+body {
+    min-width:500px;
 }

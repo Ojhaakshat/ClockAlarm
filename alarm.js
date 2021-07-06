@@ -3,7 +3,7 @@ console.log("Connected");
 const alarmSubmit = document.getElementById('alarmSubmit');
 const alarmStop = document.getElementById('alarmStop');
 
-var audio = new Audio('action_epic.mp3');
+var audio = new Audio(chrome.runtime.getURL('action_epic.mp3'));
 function ringBell() {
     audio.play();
 }

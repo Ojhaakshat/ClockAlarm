@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "ClockWeatherAlarm",
+  "version": "1.0",
+  "description": "An extension for clock alarm and weather",
+  "author": "Akshat Ojha",
+  "icons": {"128": "Clock.png"},
+  "browser_action" : { "default_icon": "Clock.png", "default_title": "ClockAlarmWeather", "default_popup":"index.html"},
+  "permissions": ["geolocation"],
+  "background":{"scripts" : ["alarm.js","weather.js"]},
+  "web_accessible_resources": [
+    "action_epic.mp3"
+]
+	
+}
