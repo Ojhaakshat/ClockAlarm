@@ -22,10 +22,12 @@ window.addEventListener("load", () => {
     }
 })
 
-// const weatherinfo = {};
+const temperature = {
+
+};
 function getWeather(longitude, latitude) {
     
-    const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    // const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     
     fetch(api)
         .then((res) => {
@@ -33,10 +35,33 @@ function getWeather(longitude, latitude) {
         })
         .then((data) => {
             console.log(data);
-            temp.innerHTML = `${Math.floor(data.main.temp - 273)}°C`;
+            temperature.value = `${Math.floor(data.main.temp - 273)}`;
+            temperature.unit = "celsius";
+            temp.innerHTML = `${temperature.value}°<span>C</span>`;
             // console.log(data.weather.description);
             desc.innerHTML = data.weather[0].description;
             loc.innerHTML = `${data.name}, ${data.sys.country}`;
             icon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
         })
 }
+
+// C to F conversion
+function celsiusToFahrenheit(val){
+    return ( val * 9/5) + 32;
+}
+
+// WHEN THE USER CLICKS ON THE TEMPERATURE ELEMENET
+temp.addEventListener("click", function(){
+    if(temperature.value === undefined) return;
+    
+    if(temperature.unit == "celsius"){
+        let fahrenheit = celsiusToFahrenheit(temperature.value);
+        fahrenheit = Math.floor(fahrenheit);
+        
+        temp.innerHTML = `${fahrenheit}°<span>F</span>`;
+        temperature.unit = "fahrenheit";
+    }else{
+        temp.innerHTML = `${temperature.value}°<span>C</span>`;
+        temperature.unit = "celsius";
+    }
+});
